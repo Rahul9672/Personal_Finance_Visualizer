@@ -28,13 +28,15 @@ A simple web application for tracking personal finances with visualization featu
 4. Run the development server: `npm run dev`
 
 ## Screenshot
-![1](https://github.com/user-attachments/assets/9a007c10-42f3-4c69-9373-37d590aacc93)
+1
+![IMG-20250505-WA0012(1)](https://github.com/user-attachments/assets/1819f0ca-33bb-4d00-84c2-62c388c93fc5)
+2
+![IMG-20250505-WA0008 (2)](https://github.com/user-attachments/assets/3ec0b7ff-2be2-4142-b82b-ea284e28adb4)
+3
+![IMG-20250505-WA0010(1)](https://github.com/user-attachments/assets/1ed05d9d-ef9e-4346-ac6f-7994342fca85)
+4
+![IMG-20250505-WA0011(1)](https://github.com/user-attachments/assets/71b33c4f-e131-48e0-ae82-6fce90c59c23)
 
-![2](https://github.com/user-attachments/assets/91230dce-2b18-4547-8b25-700f2caeef14)
-
-![3](https://github.com/user-attachments/assets/ba695c47-f8f7-4bfd-aaa3-66b39fb8feba)
-
-![4](https://github.com/user-attachments/assets/7f813124-6db2-49ca-a6b3-28ec2d867bba)
 ## Deployment
 
 The application can be deployed to Vercel, Netlify, or any other Next.js-compatible hosting platform.
