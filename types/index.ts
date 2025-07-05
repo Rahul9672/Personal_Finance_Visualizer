@@ -7,4 +7,3 @@ export interface Transaction {
   category: string;
 }
 
-export type NewTransaction = Omit<Transaction, '_id' | 'date'>;// timestamp refresh

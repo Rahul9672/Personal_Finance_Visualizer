@@ -9,4 +9,3 @@ declare global {
 
 // Required to make this a module and avoid redeclaration errors
 export {};
-// timestamp refresh

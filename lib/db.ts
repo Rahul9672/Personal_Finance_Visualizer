@@ -43,4 +43,3 @@ async function dbConnect(): Promise<Connection> {
 }
 
 export default dbConnect;
-// timestamp refresh

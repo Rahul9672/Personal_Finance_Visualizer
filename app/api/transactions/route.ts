@@ -56,4 +56,3 @@ export async function DELETE(request: Request) {
     );
   }
 }
-// timestamp refresh

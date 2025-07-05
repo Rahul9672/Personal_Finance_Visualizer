@@ -58,4 +58,3 @@ export default function MonthlyExpensesChart() {
       </CardContent>
     </Card>
   );
-}// timestamp refresh

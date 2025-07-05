@@ -18,4 +18,3 @@ const BudgetSchema = new Schema({
 
 const Budget = models.Budget || model('Budget', BudgetSchema);
 
-export default Budget;// timestamp refresh

@@ -27,4 +27,3 @@ export default function RootLayout({
       </body>
     </html>
   );
-}// timestamp refresh

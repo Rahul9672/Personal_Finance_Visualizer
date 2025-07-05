@@ -46,4 +46,3 @@ export default function SummaryCards() {
       </Card>
     </div>
   );
-}// timestamp refresh

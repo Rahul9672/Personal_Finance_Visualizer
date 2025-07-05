@@ -106,4 +106,3 @@ export default function CategoryPieChart() {
       </CardContent>
     </Card>
   );
-}// timestamp refresh
