@@ -16,4 +16,4 @@ export const incomeCategories = [
     { value: 'other', label: 'Other' },
   ];
   
-  export const allCategories = [...incomeCategories, ...expenseCategories];
+  export const allCategories = [...incomeCategories, ...expenseCategories];// timestamp refresh
