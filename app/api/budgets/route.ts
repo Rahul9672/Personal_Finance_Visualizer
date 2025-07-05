@@ -25,15 +25,15 @@ export async function POST(request: Request) {
         year: currentDate.getFullYear()
       },
       { amount: body.amount },
-      { 
+      {
         upsert: true,
         new: true,
-        setDefaultsOnInsert: true 
+        setDefaultsOnInsert: true
       }
     );
-    
+
     return NextResponse.json(budget, { status: 200 });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Failed to save budget' },
       { status: 500 }
@@ -49,7 +49,7 @@ export async function DELETE(request: Request) {
   try {
     await Budget.findByIdAndDelete(id);
     return NextResponse.json({ message: 'Budget deleted successfully' });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Failed to delete budget' },
       { status: 500 }

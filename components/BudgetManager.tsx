@@ -3,8 +3,19 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent
+} from '@/components/ui/card';
 import { useBudgets } from '@/context/BudgetContext';
 import { useTransactions } from '@/context/TransactionsContext';
 import { expenseCategories } from '@/constants/categories';
@@ -12,7 +23,6 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { Pencil, Trash2 } from 'lucide-react';
 import type { Budget } from '@/context/BudgetContext';
-
 
 export default function BudgetManager() {
   const { budgets, setBudget, deleteBudget, refreshBudgets } = useBudgets();
@@ -51,8 +61,8 @@ export default function BudgetManager() {
       setAmount('');
       setEditingId(null);
       refreshBudgets();
-      refreshTransactions(); // Refresh transactions to update charts
-    } catch (error) {
+      refreshTransactions();
+    } catch {
       toast.error('Failed to set budget');
     } finally {
       setIsLoading(false);
@@ -64,8 +74,8 @@ export default function BudgetManager() {
       await deleteBudget(id);
       toast.success('Budget removed successfully');
       refreshBudgets();
-      refreshTransactions(); // Refresh transactions to update charts
-    } catch (error) {
+      refreshTransactions();
+    } catch {
       toast.error('Failed to delete budget');
     }
   };
@@ -79,8 +89,8 @@ export default function BudgetManager() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <Label htmlFor="category">Category</Label>
-            <Select 
-              value={selectedCategory} 
+            <Select
+              value={selectedCategory}
               onValueChange={setSelectedCategory}
               disabled={!!editingId}
             >
@@ -88,7 +98,7 @@ export default function BudgetManager() {
                 <SelectValue placeholder="Select a category" />
               </SelectTrigger>
               <SelectContent>
-                {expenseCategories.map((category) => (
+                {expenseCategories.map(category => (
                   <SelectItem key={category.value} value={category.value}>
                     {category.label}
                   </SelectItem>
@@ -104,7 +114,7 @@ export default function BudgetManager() {
               step="0.01"
               min="0.01"
               value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={e => setAmount(e.target.value)}
               placeholder="0.00"
               required
             />
@@ -116,14 +126,16 @@ export default function BudgetManager() {
                   <span className="animate-spin mr-2">↻</span>
                   {editingId ? 'Updating...' : 'Setting...'}
                 </span>
+              ) : editingId ? (
+                'Update Budget'
               ) : (
-                editingId ? 'Update Budget' : 'Set Budget'
+                'Set Budget'
               )}
             </Button>
             {editingId && (
-              <Button 
-                variant="outline" 
-                type="button" 
+              <Button
+                variant="outline"
+                type="button"
                 onClick={handleCancelEdit}
                 disabled={isLoading}
               >
@@ -139,8 +151,11 @@ export default function BudgetManager() {
             <p className="text-gray-500">No budgets set for this month</p>
           ) : (
             <ul className="space-y-2">
-              {budgets.map((budget) => (
-                <li key={budget._id} className="flex justify-between items-center p-3 border rounded">
+              {budgets.map(budget => (
+                <li
+                  key={budget._id}
+                  className="flex justify-between items-center p-3 border rounded"
+                >
                   <div className="flex-1">
                     <span className="capitalize">
                       {expenseCategories.find(c => c.value === budget.category)?.label || budget.category}

@@ -1,10 +1,16 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select';
 import { useRouter } from 'next/navigation';
 
 const categories = [
@@ -14,7 +20,7 @@ const categories = [
   { value: 'Entertainment', label: 'Entertainment' },
   { value: 'Utilities', label: 'Utilities' },
   { value: 'Healthcare', label: 'Healthcare' },
-  { value: 'Other', label: 'Other' },
+  { value: 'Other', label: 'Other' }
 ];
 
 const months = [
@@ -29,7 +35,7 @@ const months = [
   { value: '9', label: 'September' },
   { value: '10', label: 'October' },
   { value: '11', label: 'November' },
-  { value: '12', label: 'December' },
+  { value: '12', label: 'December' }
 ];
 
 export default function BudgetForm() {
@@ -41,20 +47,17 @@ export default function BudgetForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!amount) return;
 
     await fetch('/api/budgets', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         amount: parseFloat(amount),
         category,
         month,
-        year,
-      }),
+        year
+      })
     });
 
     setAmount('');
@@ -80,14 +83,11 @@ export default function BudgetForm() {
             </SelectContent>
           </Select>
         </div>
-        
+
         <div className="grid grid-cols-2 gap-4">
           <div>
             <Label>Month</Label>
-            <Select 
-              value={month.toString()} 
-              onValueChange={(val) => setMonth(parseInt(val))}
-            >
+            <Select value={month.toString()} onValueChange={(val) => setMonth(parseInt(val))}>
               <SelectTrigger>
                 <SelectValue placeholder="Select month" />
               </SelectTrigger>
@@ -100,7 +100,6 @@ export default function BudgetForm() {
               </SelectContent>
             </Select>
           </div>
-          
           <div>
             <Label>Year</Label>
             <Input
@@ -110,7 +109,7 @@ export default function BudgetForm() {
             />
           </div>
         </div>
-        
+
         <div>
           <Label htmlFor="amount">Amount</Label>
           <Input
@@ -122,7 +121,7 @@ export default function BudgetForm() {
             required
           />
         </div>
-        
+
         <Button type="submit">Set Budget</Button>
       </form>
     </div>
