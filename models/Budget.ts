@@ -16,5 +16,4 @@ const BudgetSchema = new Schema({
   year: { type: Number, required: true },
 }, { timestamps: true });
 
-const Budget = models.Budget || model('Budget', BudgetSchema);
-
+export const Budget = models.Budget || model('Budget', BudgetSchema);

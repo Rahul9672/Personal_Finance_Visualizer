@@ -163,3 +163,4 @@ export default function TransactionForm({ initialData, onCancel }: TransactionFo
       </div>
     </form>
   );
+}

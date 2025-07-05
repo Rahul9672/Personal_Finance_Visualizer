@@ -131,3 +131,4 @@ export default function SpendingInsights() {
       </CardContent>
     </Card>
   );
+}

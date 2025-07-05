@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
-import Budget from '@/models/Budget';
+import { Budget } from '@/models/Budget';
 
 export async function GET() {
   await dbConnect();
